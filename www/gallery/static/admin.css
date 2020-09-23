@@ -1,0 +1,203 @@
+.manage-page {
+    margin: 0 6px;
+}
+
+.browse-block {
+    margin-bottom: 50px;
+}
+.browse-block:last-child {
+    margin-bottom: 10px;
+}
+.browse-block .bb-title {
+    font-size: 22px;
+}
+.browse-block .add-photo-field {
+    position: relative;
+}
+.browse-block .add-photo-field input {
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+}
+.browse-block .bb-add-button {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    background: #000000;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    color: #EEEEEE;
+    align-items: center;
+    justify-content: center;
+}
+.browse-block .bb-add-button .bb-ap-loading-icon {
+    display: none;
+    background-image: url(/static/icons/spinwhite.svg);
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+.browse-block .add-photo-field .bb-ap-loading-text {
+    display: none;
+}
+.browse-block .add-photo-field.loading .bb-ap-text {
+    display: none;
+}
+.browse-block .add-photo-field.loading .bb-ap-loading-text {
+    display: block;
+}
+.browse-block .add-photo-field.loading .bb-add-button {
+    pointer-events: none;
+}
+.browse-block .add-photo-field.loading .bb-add-button .bb-ap-loading-icon {
+    display: block;
+}
+.m-list {
+    padding: 10px;
+    border-radius: 10px;
+    background: #f2f2f2;
+}
+.ml-input {
+    margin-bottom: 10px;
+}
+.ml-info {
+    text-align: center;
+    margin: 10px;
+}
+.ml-item {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 20px;
+    color: #000000;
+    border-radius: 10px;
+}
+.ml-item:hover {
+    background: #ebebeb;
+}
+.ml-item .ml-item-inw {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 8px 0;
+}
+.ml-item:hover .ml-item-inw {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0);
+    margin-top: -1px;
+    padding: 9px 0 8px 0;
+}
+.ml-item:first-child:hover .ml-item-inw {
+    margin-top: 0;
+    padding: 8px 0 8px 0;
+}
+.ml-item:last-child .ml-item-inw {
+    border: none;
+}
+.ml-item-inw-desc {
+    font-size: 14px;
+}
+.ml-item-remove {
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 18px);
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0;
+}
+.ml-item-remove .ml-item-remove-icon {
+    background-image: url(/static/icons/close.svg);
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+}
+.ml-item:hover .ml-item-remove {
+    opacity: 1;
+}
+
+.browse-block .bb-p-items {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.browse-block .bb-p-item {
+    display: block;
+    background-size: cover;
+    background-position: center;
+    width: calc(100% / 5 - 2px);
+    padding-bottom: 20%;
+    margin: 1px;
+    border-radius: 10px;
+}
+
+.manage-form .mf-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.manage-form .mf-title a {
+    color: #000000;
+}
+.manage-form .mf-field {
+    margin-top: 10px;
+}
+.manage-form .mf-field .mf-f-name {
+    margin-bottom: 5px;
+}
+.manage-form .mf-field input {
+    border: 2px solid #EEE;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+.manage-form .mf-field select {
+    border: 2px solid #EEE;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+.mf-field .buttons {
+    display: flex;
+}
+.mf-field .mf-button {
+    font-size: 16px;
+    background: #000000;
+    padding: 6px 16px;
+    text-align: center;
+    border-radius: 5px;
+    color: #EEEEEE;
+    cursor: pointer;
+    border: none;
+}
+.mf-field .mf-button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.mf-field .mf-button.mf-save {
+    background: #00A01B;
+}
+.mf-field .mf-button.mf-delete {
+    background: #A00000;
+    margin-left: 10px;
+}
+.mf-private-list.hidden {
+    display: none;
+}
+
+.mf-field .mf-photo {
+    text-align: center;
+    background: #EEEEEE;
+    border-radius: 10px;
+    padding: 5px;
+}
+.mf-field .mf-photo img {
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}

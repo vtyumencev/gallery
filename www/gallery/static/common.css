@@ -1,0 +1,370 @@
+body, input, button, select, option {
+  font-family: 'Source Sans Pro';
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.page-content {
+  margin: 20px auto;
+  max-width: 808px;
+}
+
+.page-wrapper {
+  transition: 0.2s;
+}
+
+.w-header {
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 15px 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.header .h-menu a {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s;
+}
+.header .h-menu a[active-tab] {
+  border-bottom-color: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  font-weight: 600;
+}
+.header .h-menu a:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+.header .h-menu a:last-child {
+  margin-right: 0;
+}
+.header .h-p-btns {
+  display: flex;
+  align-items: center;
+}
+.header h-go-admin {
+
+}
+.header .h-go-admin:after {
+  content: '•';
+  margin: 0 8px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.header .h-p-logout a {
+  font-size: 16px;
+  border: none;
+  color: #b51616;
+  cursor: pointer;
+}
+.header .h-p-logout:before {
+  content: '•';
+  margin: 0 8px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.header a.h-profile {
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+  padding: 2px 12px;
+  margin: -2px 0;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 35px;
+  border: none;
+}
+.header .h-profile .h-p-icon {
+  width: 16px;
+  height: 16px;
+  background-size: cover;
+  margin-right: 5px;
+}
+
+.signin-page {
+  max-width: 300px;
+  margin: 100px auto;
+
+}
+.signin-block {
+  background-color: #8EC5FC;
+  background-image: linear-gradient(140deg, #8EC5FC 0%, #E0C3FC 100%);
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.signin-block .a-info {
+  color: #FFF;
+  padding: 30px 0;
+  text-align: center;
+}
+.signin-block .a-info .si-i-title {
+  font-size: 30px;
+}
+.signin-block .a-info .si-i-desc {
+  font-size: 18px;
+}
+
+.signin-block .a-info .si-i-icon {
+  background-image: url(/static/icons/art.svg);
+  background-size: cover;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 10px auto;
+}
+
+.signin-block .si-form {
+  background: #FFF;
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+.signin-block .si-form .already-signedIn {
+  font-size: 18px;
+}
+.signin-block .si-form input {
+  margin: 5px 0;
+  border: 2px solid #EEE;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+.signin-block .si-form .si-f-button {
+  padding: 10px 20px;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(140deg, #8EC5FC 0%, #E0C3FC 100%);
+  text-align: center;
+  border-radius: 5px;
+  color: #FFF;
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+.signin-block .si-form .si-f-button.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.signin-block .si-form .si-f-msg {
+  display: none;
+  margin: 15px 0 5px 0;
+  color: #ef5555;
+  border-top: 1px solid #EEE;
+  padding-top: 10px;
+  text-align: center;
+}
+.signin-block .si-form .as-logout-btn {
+  cursor: pointer;
+  margin-top: 10px;
+  color: #FFFFFF;
+  background: #000000;
+  padding: 8px 0;
+  border-radius: 5px;
+}
+
+
+.photos-items {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 2px;
+}
+.photos-items .p-item {
+  margin: 2px;
+}
+.photos-items .p-item a {
+  display: block;
+}
+.photos-items .p-item a.hidden {
+  visibility: hidden;
+}
+.photos-items .p-item-img {
+}
+
+
+.albums-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.albums-items .a-item {
+  width: calc(100% / 4 - 20px);
+  margin: 10px;
+  color: #000000;
+  text-decoration: none;
+}
+.albums-items .a-item:hover {
+
+}
+.albums-items .a-item .a-i-cover {
+  display: flex;
+  flex-wrap: wrap;
+}
+.albums-items .a-item .a-i-cover .a-i-preview-i {
+  width: calc(50% - 2px);
+  padding-bottom: 50%;
+  margin: 1px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+}
+.albums-items .a-item .a-i-caption {
+  margin-top: 5px;
+  text-align: center;
+}
+.albums-items .a-item .a-i-caption .a-i-name {
+  font-weight: 600;
+}
+
+.album-view .a-v-title {
+  font-size: 40px;
+  margin: 0 4px 10px 4px;
+}
+
+/* */
+html.vw-show .page-wrapper {
+  visibility: hidden;
+}
+html.hide-scrollbar {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.view-window {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.2s;
+}
+.view-window .vw-image {
+  position: absolute;
+}
+.view-window .vw-image-phantom {
+  position: absolute;
+  visibility: hidden;
+}
+.view-window .vw-image-phantom.show {
+  visibility: visible;
+}
+.view-window .vw-image-phantom.animate {
+  transition: 0.3s;
+}
+.view-window .vw-image.animate {
+  transition: 0.3s;
+}
+.view-window .vw-image.no-animate {
+  transition: 0s;
+}
+html.vw-show .view-window {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.vw-elements .vw-close {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.vw-elements .vw-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.vw-elements .vw-close .vw-c-icon {
+  background-image: url(/static/icons/cancel.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+}
+
+.vw-elements .vw-nav {
+  position: absolute;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: 0.2s;
+  top: calc(50% - 22px);
+}
+.ua-mobile .vw-elements {
+  visibility: hidden;
+}
+.vw-elements .vw-nav:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.vw-elements .vw-nav.vw-prev {
+  left: 4px;
+}
+.vw-elements .vw-nav.vw-next {
+  right: 4px;
+}
+.vw-elements .vw-nav .vw-nav-icon {
+  background-image: url(/static/icons/next.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+}
+.vw-elements .vw-nav.vw-prev .vw-nav-icon {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 600px) {
+  .albums-items .a-item {
+    width: calc(100% / 3 - 20px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    flex-wrap: wrap-reverse;
+  }
+  .header .h-menu {
+    width: 100%;
+  }
+  .header .h-main-menu {
+    margin-top: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px;
+    border-radius: 8px;
+    display: flex;
+  }
+  .header .h-main-menu a {
+    width: 50%;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 8px;
+    padding: 4px;
+    margin-right: 0;
+  }
+  .header .h-menu.h-main-menu a[active-tab] {
+    background: #FFFFFF;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.03);
+    font-weight: 400;
+  }
+  .header .h-menu.h-personal-menu {
+    text-align: center;
+  }
+  .header .h-p-btns {
+    justify-content: center;
+  }
+  .albums-items .a-item {
+    width: calc(100% / 2 - 20px);
+  }
+}
