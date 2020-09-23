@@ -8,7 +8,21 @@ class Photos extends Module
     public function getPage($isAJAX = NULL)
     {
 
-        $res = static::$dataBase->query('SELECT * FROM photos WHERE deleted = 0 AND private = 0 ORDER BY added_at DESC');
+        $private_join = '';
+        $private_where = '';
+        if(static::$userData) {
+            $private_join = 'LEFT JOIN photos_users ON photos_users.photo_id = photos.id';
+            $private_where = 'OR photos_users.user_id = '.static::$userData['id'];
+        }
+
+        $res = static::$dataBase->query('
+            SELECT *
+            FROM photos
+            '.$private_join.'
+            WHERE deleted = 0
+              AND (private = 0 '.$private_where.')
+            ORDER BY added_at DESC
+            ');
 
         $photosPage = $this->getPhotos($res, $isAJAX);
 

@@ -168,10 +168,9 @@ body {
 .signin-block .si-form .as-logout-btn {
   cursor: pointer;
   margin-top: 10px;
-  color: #FFFFFF;
-  background: #000000;
+  background: #ECECEC;
   padding: 8px 0;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 
@@ -226,6 +225,21 @@ body {
 }
 .albums-items .a-item .a-i-caption .a-i-name {
   font-weight: 600;
+}
+
+.albums-items .a-item .a-i-caption .a-i-count {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.albums-items .a-item .a-i-caption .a-i-count .a-i-private {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  background-image: url(/static/icons/padlock.svg);
+  background-size: cover;
+  opacity: 0.3;
 }
 
 .album-view .a-v-title {
@@ -315,6 +329,9 @@ html.vw-show .view-window {
 .vw-elements .vw-nav.vw-next {
   right: 4px;
 }
+.vw-elements .vw-nav.hidden {
+  visibility: hidden;
+}
 .vw-elements .vw-nav .vw-nav-icon {
   background-image: url(/static/icons/next.svg);
   background-size: cover;
@@ -325,6 +342,11 @@ html.vw-show .view-window {
   transform: rotate(180deg);
 }
 
+@media screen and (max-width: 840px) {
+  .page-content {
+    margin: 2px auto;
+  }
+}
 @media screen and (max-width: 600px) {
   .albums-items .a-item {
     width: calc(100% / 3 - 20px);
@@ -366,5 +388,16 @@ html.vw-show .view-window {
   }
   .albums-items .a-item {
     width: calc(100% / 2 - 20px);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .signin-page {
+    margin: 50px auto;
+  }
+}
+@media screen and (max-width: 350px) {
+  .signin-page {
+    margin: 10px auto;
   }
 }

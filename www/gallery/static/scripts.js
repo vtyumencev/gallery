@@ -2,6 +2,8 @@ let viewPhotos = [];
 let selectedPhotoIndex = 0;
 let startedFromVW = false;
 let titlePhotoView = 'Просмотр фото — Галерея';
+let lastResizeWidth = 0;
+let timeoutResizeGrid = 0;
 
 
 $(document).ready(function() {
@@ -13,6 +15,20 @@ $(document).ready(function() {
     photosTouchSupport();
 });
 
+window.onresize = function() {
+    if($('html').hasClass('vw-show')) {
+        let photoData = viewPhotos[selectedPhotoIndex];
+        photosUpdateViewWindowPosition($('.view-window .vw-image'), photoData.image_big_width, photoData.image_big_height);
+    }
+    if($('.photos-items').length && lastResizeWidth != window.innerWidth) {
+        clearTimeout(timeoutResizeGrid);
+        timeoutResizeGrid = setTimeout(function() {
+            photosGridBuild(viewPhotos);
+        }, 100)
+        lastResizeWidth = window.innerWidth;
+    }
+};
+
 $(document).on('click', '.si-f-button', function() {
     signInQuery();
 }).on('keyup', '.si-f-username, .si-f-password', function(e) {
@@ -20,6 +36,7 @@ $(document).on('click', '.si-f-button', function() {
         signInQuery();
     }
 });
+
 
 function signInQuery() {
     if($('.si-f-button').hasClass('disabled')) return;
@@ -136,6 +153,7 @@ function photosOpenViewWindow(path, changeState) {
     }
     else history.replaceState({title: titlePhotoView, oldTitle: history.state.title},  '');
     document.title = titlePhotoView;
+    photosUpdateViewWindowElements();
 }
 
 $(document).on('click', '.view-window .vw-close', function(e) {
@@ -164,6 +182,7 @@ function photosNextVWItem() {
         selectedPhotoIndex++;
         photosUpdateViewWindowPosition($('.view-window .vw-image'), photoData.image_big_width, photoData.image_big_height);
         history.replaceState(history.state,  '', '?view=' + photoData.id);
+        photosUpdateViewWindowElements();
     }
 }
 
@@ -179,6 +198,7 @@ function photosPrevVWItem() {
         selectedPhotoIndex--;
         photosUpdateViewWindowPosition($('.view-window .vw-image'), photoData.image_big_width, photoData.image_big_height);
         history.replaceState(history.state,  '', '?view=' + photoData.id);
+        photosUpdateViewWindowElements();
     }
 }
 
@@ -203,12 +223,16 @@ function photosCloseViewWindow() {
 
 function photosGridBuild(photos) {
     let elPlace = $('.photos-items');
+    elPlace.empty();
+
     let start = 0;
     let margin = 4;
     let row = 300;
 
     let pageWidth = $('.photos-items').outerWidth();
     let checkedScrollbar = false;
+
+    if(window.innerWidth < 500) row = 200;
 
     while(photos.length > start) {
         let sum = 0;
@@ -270,7 +294,17 @@ function photosUpdateViewWindowPosition(el, vw_original_w, vw_original_h) {
 }
 
 function photosUpdateViewWindowElements() {
+    let photoData = viewPhotos[selectedPhotoIndex + 1];
+    if(photoData) {
+        $('.vw-next').removeClass('hidden');
+    }
+    else $('.vw-next').addClass('hidden');
 
+    photoData = viewPhotos[selectedPhotoIndex - 1];
+    if(photoData) {
+        $('.vw-prev').removeClass('hidden');
+    }
+    else $('.vw-prev').addClass('hidden');
 }
 
 function photosTouchSupport() {
@@ -347,14 +381,14 @@ function photosTouchSupport() {
 
             let touch = lastTouch.targetTouches[0];
 
-            if(type === 1 && Math.abs(posY - touch.pageY) > 200) {
+            if(type === 1 && Math.abs(posY - touch.pageY) > 100) {
                 $('.vw-image').css('transform', 'translateY(0)').css('margin-top', (touch.pageY - posY + startVWY));
                 setTimeout(function () {
                     $('.vw-image').addClass('animate');
                     $('.view-window .vw-close').click();
                     }, 10);
             }
-            else if(phantom && type === 2 && posX - touch.pageX > 100) {
+            else if(phantom && type === 2 && posX - touch.pageX > 50) {
                 timeOutMove = true;
                 $('.vw-image').addClass('animate').css('transform', 'translateX(' + (-window.innerWidth) + 'px)');
                 $('.vw-image-phantom').addClass('animate').css('transform', 'translateX(0)');
@@ -373,7 +407,7 @@ function photosTouchSupport() {
                     }, 300);
                 phantom = 0;
             }
-            else if(phantom && type === 2 && touch.pageX - posX > 100) {
+            else if(phantom && type === 2 && touch.pageX - posX > 50) {
                 timeOutMove = true;
                 $('.vw-image').addClass('animate').css('transform', 'translateX(' + window.innerWidth + 'px)');
                 $('.vw-image-phantom').addClass('animate').css('transform', 'translateX(0)');

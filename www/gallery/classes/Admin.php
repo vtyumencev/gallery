@@ -61,7 +61,7 @@ class Admin extends Module
                             </div>
                             <div class="mf-field buttons">
                                 '.($albumData ?
-                                    '<button class="mf-button mf-save save-form-albums" data-album-id="'.$albumData['id'].'">Сохранить</button><button class="mf-button mf-delete">Удалить альбом</button>' :
+                                    '<button class="mf-button mf-save save-form-albums" data-album-id="'.$albumData['id'].'">Сохранить</button><!--<button class="mf-button mf-delete">Удалить альбом</button>-->' :
                                     '<button class="mf-button mf-save save-form-albums" data-album-id="0">Добавить альбом</button>').'
                             </div>
                         </div>
@@ -141,7 +141,7 @@ class Admin extends Module
                             </div>
                             <div class="mf-field buttons">
                                 <button class="mf-button mf-save save-form-photo" data-photo-id="'.$photoData['id'].'">Сохранить</button>
-                                <button class="mf-button mf-delete">Удалить фото</button>
+                                <!--<button class="mf-button mf-delete">Удалить фото</button>-->
                             </div>
                         </div>
                     </div>';

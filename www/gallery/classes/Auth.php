@@ -25,7 +25,7 @@ class Auth extends Module
                     <div class="signin-block">
                         <div class="a-info">
                             <div class="si-i-icon"></div>
-                            <div class="si-i-title">Моя галерея</div>
+                            <div class="si-i-title">Моя фотогалерея</div>
                             <div class="si-i-desc">Панель аутентификации</div>
                         </div>
                         <div class="si-form">
